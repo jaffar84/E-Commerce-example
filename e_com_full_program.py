@@ -244,7 +244,7 @@ def display_menu():
     print("7. Place Order")
     print("8. Add Order Detail")
     print("9. View Total Revenue")
-    print("10. View Total Quantity Sold")  # Add this new option
+    print("10. View Total Quantity Sold")
     print("11. Exit")
 
 # Main function to run the program
