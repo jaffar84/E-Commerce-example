@@ -200,6 +200,38 @@ def display_all_orders():
     for order in results:
         print(f"Order ID: {order[0]}, Customer ID: {order[1]}, Order Date: {order[2]}, Total Amount: {order[3]:.2f}")
 
+# Function to display total quantity sold
+def display_total_quantity_sold():
+    conn = sqlite3.connect('ecommerce_platform.db')
+    cursor = conn.cursor()
+    
+    # Query the view to get the total quantity sold for all products
+    cursor.execute("SELECT SUM(TotalQuantitySold) FROM v_ProductSalesSummary;")
+    total_quantity_sold = cursor.fetchone()[0]
+    
+    if total_quantity_sold is None:
+        total_quantity_sold = 0
+
+    conn.close()
+    
+    print(f"\nTotal Quantity Sold for all products: {total_quantity_sold}")
+
+# Function to display total revenue
+def display_total_revenue():
+    conn = sqlite3.connect('ecommerce_platform.db')
+    cursor = conn.cursor()
+    
+    # Query the view to get the total revenue for all products
+    cursor.execute("SELECT SUM(TotalRevenue) FROM v_ProductSalesSummary;")
+    total_revenue = cursor.fetchone()[0]
+    
+    if total_revenue is None:
+        total_revenue = 0.0
+
+    conn.close()
+    
+    print(f"\nTotal Revenue from all product sales: ${total_revenue:.2f}")
+
 # Function to display the menu
 def display_menu():
     print("\nMenu:")
@@ -211,7 +243,9 @@ def display_menu():
     print("6. Insert Product")
     print("7. Place Order")
     print("8. Add Order Detail")
-    print("9. Exit")
+    print("9. View Total Revenue")
+    print("10. View Total Quantity Sold")  # Add this new option
+    print("11. Exit")
 
 # Main function to run the program
 def main():
@@ -221,7 +255,7 @@ def main():
 
     while True:
         display_menu()
-        choice = input("Enter your choice (1-9): ")
+        choice = input("Enter your choice (1-11): ")
 
         if choice == '1':
             display_all_customers()
@@ -267,6 +301,12 @@ def main():
             add_order_detail(order_id, product_id, quantity, unit_price)
 
         elif choice == '9':
+            display_total_revenue()  # Call the function to show total revenue
+
+        elif choice == '10':
+            display_total_quantity_sold()  # Call the new function to show total quantity sold
+
+        elif choice == '11':
             print("Exiting the program.")
             break
 
