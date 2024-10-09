@@ -1,9 +1,17 @@
-# E-Commerce-example
-This project is a simple e-commerce platform built using Python and SQLite. It demonstrates basic functionalities such as user management, product catalog, and order processing. The project includes:
+Description
+An interactive e-commerce platform implemented in Python using SQLite. This project allows users to manage customers, products, orders, and order details in a user-friendly interface, providing an example of a basic e-commerce application.
 
-Customer and Admin roles
-Product categories and product listings
-Order management (with order details)
-Views for product sales summaries and order summaries
-Indexes to improve database query performance
-This repository can be used as a basic example for learning how to build e-commerce platforms with a focus on database management and user interaction in Python.
+Features
+
+View all customers, products, and orders.
+Insert new customers, product categories, and products.
+Place orders and add products to orders.
+Display summaries of orders and product sales using database views.
+Indexing for improved query performance.
+Requirements
+
+Python 3.x
+SQLite3
+How to Run
+Clone this repository to your local machine:
+git clone https://github.com/jaffar84/E-Commerce-example.git
